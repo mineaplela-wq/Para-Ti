@@ -1,97 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07030f">
-<title>PARA TI 🤍</title>
+<title>PARA TI🤍</title>
 <style>
-:root{--pink:#ff62c4;--violet:#b78aff;--white:#fff8ff}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#05030d;color:var(--white);font-family:Georgia,"Times New Roman",serif}
-body{overflow-x:hidden}
-#space{position:fixed;inset:0;width:100%;height:100%;z-index:0}
-.nebula{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 18% 30%,#45207866,transparent 34%),radial-gradient(ellipse at 78% 65%,#a10f5d55,transparent 32%),radial-gradient(ellipse at 48% 48%,#162d7666,transparent 40%);filter:blur(20px);animation:nebula 18s ease-in-out infinite alternate}
-@keyframes nebula{to{transform:translate(3%,-2%) scale(1.1);filter:blur(32px)}}
-main{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px 48px;text-align:center}
-.eyebrow{font:11px Arial,sans-serif;letter-spacing:.36em;text-transform:uppercase;color:#d8b9ff}
-h1{font-size:clamp(38px,9vw,72px);font-weight:400;line-height:1.04;margin:13px 0 8px;text-shadow:0 0 24px #ff4fba88}
-.subtitle{font-size:clamp(14px,3.5vw,18px);color:#e3d7f6;max-width:540px;line-height:1.7;margin:0 auto 12px}
-.scene{width:min(90vw,440px);aspect-ratio:1;position:relative;display:grid;place-items:center;margin:0 auto 12px;perspective:900px}
-.orbit{position:absolute;width:87%;height:87%;border:1px solid #b78bff45;border-radius:50%;transform:rotateX(65deg);box-shadow:0 0 32px #8b4cff16;animation:orbit 18s linear infinite}
-.orbit.two{width:69%;height:69%;transform:rotateX(68deg) rotateZ(35deg);animation-duration:24s;animation-direction:reverse}
-@keyframes orbit{to{rotate:360deg}}
-.heart-wrap{position:relative;width:49%;aspect-ratio:1;display:grid;place-items:center;filter:drop-shadow(0 0 18px #ff2fae88);animation:float 4s ease-in-out infinite}
-.heart{width:100%;height:100%;overflow:visible;animation:pulse 2.4s ease-in-out infinite}
-.heart path{fill:url(#heartgrad);stroke:#ffb3ed;stroke-width:1.2;filter:drop-shadow(0 0 8px #ff4fba)}
-@keyframes pulse{0%,100%{transform:scale(.96)}50%{transform:scale(1.04)}}
-@keyframes float{0%,100%{translate:0 4px}50%{translate:0 -8px}}
-.photo{position:absolute;width:clamp(72px,19vw,100px);aspect-ratio:3/4;border:1px solid #fbd7ff99;border-radius:8px;padding:5px;background:linear-gradient(135deg,#ffffff20,#b66aff20);box-shadow:0 0 20px #9e5bff33;transform:rotate(var(--r));animation:photoFloat var(--dur,6s) ease-in-out infinite;backdrop-filter:blur(4px);overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;border-radius:4px;display:block}
-.photo .placeholder{height:100%;display:flex;align-items:center;justify-content:center;padding:5px;font:11px Arial,sans-serif;color:#f6dfff;background:linear-gradient(145deg,#321b53,#8a326e);border-radius:4px}
-.p1{left:2%;top:17%;--r:-10deg;--dur:6s}.p2{right:1%;top:22%;--r:9deg;--dur:7s;animation-delay:-2s}.p3{left:12%;bottom:4%;--r:7deg;--dur:6.5s;animation-delay:-1s}.p4{right:11%;bottom:3%;--r:-8deg;--dur:7.5s;animation-delay:-3s}
-@keyframes photoFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
-.message{max-width:540px;font-size:clamp(16px,4vw,21px);line-height:1.7;color:#fff2fc;text-shadow:0 0 15px #ff62c444;margin:0 auto 18px}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-button,.upload-label{border:1px solid #d9b3ff88;background:#ffffff0d;color:#fff;border-radius:999px;padding:11px 17px;font:13px Arial,sans-serif;cursor:pointer;backdrop-filter:blur(8px);transition:.2s}
-button:hover,.upload-label:hover{background:#ffffff1d;transform:translateY(-1px)}
-#letter{display:none;max-width:520px;margin:18px auto 0;padding:18px 20px;border:1px solid #e7c8ff55;border-radius:16px;background:#10091dcc;line-height:1.8;color:#f9eaff;animation:appear .7s ease both}
-@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.small{font:11px Arial,sans-serif;color:#b8a8ce;margin-top:20px}
-#photoPicker,#musicPicker{display:none}
-footer{font:10px Arial,sans-serif;color:#a99abf;letter-spacing:.08em;margin-top:22px}
-@media(max-width:380px){.scene{width:94vw}.photo{width:70px}.p1{left:0}.p2{right:0}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+body{margin:0;background:#03030d;color:white;font-family:Georgia,serif;overflow:hidden}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1}
+body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gradient(ellipse at 50% 55%,#39215e 0%,transparent 38%),radial-gradient(ellipse at 80% 20%,#142b58 0%,transparent 35%);animation:nebula 12s infinite alternate}
+@keyframes nebula{to{transform:translate(3%,-2%) scale(1.1)}}
+header{position:absolute;top:22px;width:100%;text-align:center;padding:0 14px}
+small{letter-spacing:4px;color:#d8c7ff;font:10px Arial}
+h1{font-weight:normal;font-size:clamp(28px,7vw,42px);margin:10px 0;text-shadow:0 0 15px #b68bff,0 0 30px #ef8aff}
+.subtitle{font-size:12px;color:#eee0ff}
+.galaxy{position:absolute;left:50%;top:53%;width:min(100vw,500px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:repeating-conic-gradient(from 0deg,transparent 0deg 8deg,#c5a5ff35 9deg 10deg,transparent 12deg 18deg),radial-gradient(circle,#fff 0%,#dfc1ff 2%,#9c7cff8c 5%,#6b48b54d 15%,transparent 60%);mask-image:radial-gradient(ellipse,transparent 0%,black 15%,black 35%,transparent 70%);animation:spin 30s linear infinite;filter:drop-shadow(0 0 18px #a879ff)}
+@keyframes spin{to{rotate:360deg}}
+.galaxy:after{content:"";position:absolute;left:0;right:0;top:49%;height:2px;background:linear-gradient(90deg,transparent,#fff, #d6b4ff,transparent);box-shadow:0 0 24px 8px #b48bff55}
+.heart{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-size:clamp(90px,25vw,140px);color:#ffc9ff;text-shadow:0 0 8px white,0 0 25px #ff6cf5,0 0 55px #ac6dff;animation:pulse 2.5s infinite;z-index:2}
+@keyframes pulse{50%{transform:translate(-50%,-55%) scale(1.08)}}
+.photo{position:absolute;width:65px;height:85px;padding:4px;background:linear-gradient(135deg,#fff,#d2aaff,#ffb5ed);box-shadow:0 0 15px #c58aff;animation:float 5s infinite ease-in-out;cursor:pointer}
+.photo img{width:100%;height:100%;object-fit:cover;background:#33234b}
+.p1{top:38%;left:10%;transform:rotate(-10deg)}.p2{top:38%;right:10%;transform:rotate(10deg)}.p3{top:62%;left:17%;transform:rotate(8deg)}.p4{top:62%;right:17%;transform:rotate(-8deg)}
+@keyframes float{50%{margin-top:-12px}}
+.bottom{position:absolute;bottom:20px;width:100%;text-align:center;padding:0 18px}
+.bottom p{font-size:14px;line-height:1.6;text-shadow:0 0 12px #b88aff}
+button{border:1px solid #d9baff80;color:white;background:#160f2cdd;border-radius:30px;padding:10px 13px;margin:3px;font-size:11px}
+#letter{position:fixed;inset:0;background:#03030df0;display:none;place-items:center;padding:22px;z-index:5}
+.card{max-width:400px;text-align:center;padding:25px;border:1px solid #d6b5ff80;border-radius:18px;background:#17102a;line-height:1.8;box-shadow:0 0 35px #a66bff55}
+input{display:none}
+@media(max-height:650px){header{top:8px}.galaxy{width:85vw}.bottom{bottom:5px}.heart{top:40%}.p3,.p4{top:59%}}
 </style>
 </head>
 <body>
-<canvas id="space" aria-hidden="true"></canvas><div class="nebula"></div>
-<main>
-  <div class="eyebrow">um pedacinho do meu universo</div>
-  <h1>PARA TI <span aria-label="coração branco">🤍</span></h1>
-  <p class="subtitle">Se eu pudesse te dar o universo, ainda seria pouco perto do que tu significas.</p>
-  <section class="scene" aria-label="Coração luminoso cercado por fotos e estrelas">
-    <div class="orbit"></div><div class="orbit two"></div>
-    <div class="photo p1"><div class="placeholder">Tua foto ✨</div><img alt="Foto 1" hidden></div>
-    <div class="photo p2"><div class="placeholder">Teu sorriso 🤍</div><img alt="Foto 2" hidden></div>
-    <div class="photo p3"><div class="placeholder">Um momento nosso</div><img alt="Foto 3" hidden></div>
-    <div class="photo p4"><div class="placeholder">Especial ✨</div><img alt="Foto 4" hidden></div>
-    <div class="heart-wrap">
-      <svg class="heart" viewBox="0 0 100 100" role="img" aria-label="Coração brilhante">
-        <defs><linearGradient id="heartgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb4ec"/><stop offset=".48" stop-color="#ff4fb8"/><stop offset="1" stop-color="#8c42ff"/></linearGradient></defs>
-        <path d="M50 88 C42 79 8 57 8 31 C8 9 35 3 50 24 C65 3 92 9 92 31 C92 57 58 79 50 88Z"/>
-      </svg>
-    </div>
-  </section>
-  <p class="message">No meio de tantas estrelas, meu lugar favorito ainda é onde existe um pedacinho de ti. 🤍</p>
-  <div class="actions">
-    <button id="openLetter">Ler uma cartinha ✨</button>
-    <button id="musicButton">Escolher música ♫</button>
-    <label class="upload-label" for="photoPicker">Adicionar fotos ♡</label>
-  </div>
-  <div id="letter">Não sei se existem palavras bonitas o suficiente para explicar o carinho que tenho por ti. Então fiz este pequeno universo, só para lembrar que, mesmo quando tudo parece distante, tu continuas sendo uma parte muito especial dos meus dias. Que esta luz te encontre e te faça sorrir. <br><br>Com carinho, para ti. 🤍</div>
-  <input id="photoPicker" type="file" accept="image/*" multiple>
-  <input id="musicPicker" type="file" accept="audio/*">
-  <audio id="audio" loop></audio>
-  <div class="small">Dica: toca em “Adicionar fotos” para ver as tuas imagens aqui.</div>
-  <footer>FEITO COM CARINHO • PARA TI 🤍</footer>
-</main>
+<canvas id="stars"></canvas>
+<header>
+<small>UM PEDACINHO DO MEU UNIVERSO</small>
+<h1>PARA TI 🤍</h1>
+<div class="subtitle">Se eu pudesse te dar o universo, ainda seria pouco perto do que tu significas.</div>
+</header>
+<div class="galaxy"></div>
+<div class="heart">♡</div>
+<label class="photo p1"><img id="im1" alt="Foto 1"><input type="file" accept="image/*" onchange="photo(this,'im1')"></label>
+<label class="photo p2"><img id="im2" alt="Foto 2"><input type="file" accept="image/*" onchange="photo(this,'im2')"></label>
+<label class="photo p3"><img id="im3" alt="Foto 3"><input type="file" accept="image/*" onchange="photo(this,'im3')"></label>
+<label class="photo p4"><img id="im4" alt="Foto 4"><input type="file" accept="image/*" onchange="photo(this,'im4')"></label>
+<div class="bottom">
+<p>No meio de tantas estrelas, meu lugar favorito ainda é onde existe um pedacinho de ti. 🤍</p>
+<button onclick="document.getElementById('letter').style.display='grid'">Ler uma cartinha ✨</button>
+<button onclick="document.getElementById('music').click()">Escolher música ♫</button>
+<button onclick="document.querySelector('.p1 input').click()">Adicionar fotos ♡</button>
+<input id="music" type="file" accept="audio/*" onchange="playMusic(this)">
+<audio id="audio" loop></audio>
+</div>
+<div id="letter"><div class="card"><h2>Pra ti, meu universo 🤍</h2><p>Se eu pudesse guardar uma coisa bonita pra sempre, guardaria a sensação boa que é ter você na minha vida. Que cada estrelinha aqui te lembre que, mesmo quando a distância parece grande, existe carinho pensando em ti. Tu és um pedacinho de paz no meu mundo — e eu escolheria te encontrar de novo, em qualquer universo. ✨</p><button onclick="document.getElementById('letter').style.display='none'">Voltar ao universo</button></div></div>
 <script>
-const canvas=document.getElementById('space'),ctx=canvas.getContext('2d');
-let w,h,dpr,stars=[],shooters=[];
-function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(240,Math.floor(w*h/4200))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.2,a:Math.random()*.7+.2,s:Math.random()*.012+.002,p:Math.random()*6.28}));}
-function draw(){ctx.clearRect(0,0,w,h);for(const s of stars){s.p+=s.s;let a=s.a*(.55+.45*Math.sin(s.p));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,239,255,${a})`;ctx.fill();if(s.r>1.2){ctx.strokeStyle=`rgba(213,170,255,${a*.35})`;ctx.beginPath();ctx.moveTo(s.x-3,s.y);ctx.lineTo(s.x+3,s.y);ctx.moveTo(s.x,s.y-3);ctx.lineTo(s.x,s.y+3);ctx.stroke();}}
-if(Math.random()<.008)shooters.push({x:Math.random()*w*.8,y:Math.random()*h*.5,vx:5+Math.random()*4,vy:2+Math.random()*2,life:0});
-shooters=shooters.filter(s=>s.life<22);for(const s of shooters){s.x+=s.vx;s.y+=s.vy;s.life++;ctx.strokeStyle=`rgba(255,225,255,${1-s.life/22})`;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-s.vx*5,s.y-s.vy*5);ctx.stroke();}
-requestAnimationFrame(draw)}
-addEventListener('resize',resize);resize();draw();
-document.getElementById('openLetter').addEventListener('click',()=>{const el=document.getElementById('letter');el.style.display=el.style.display==='block'?'none':'block';});
-document.getElementById('photoPicker').addEventListener('change',e=>{const files=[...e.target.files].slice(0,4);const cards=[...document.querySelectorAll('.photo')];files.forEach((file,i)=>{const img=cards[i].querySelector('img');img.src=URL.createObjectURL(file);img.hidden=false;cards[i].querySelector('.placeholder').hidden=true;});});
-const musicPicker=document.getElementById('musicPicker'),audio=document.getElementById('audio'),musicButton=document.getElementById('musicButton');
-musicButton.addEventListener('click',()=>musicPicker.click());
-musicPicker.addEventListener('change',e=>{const f=e.target.files[0];if(f){audio.src=URL.createObjectURL(f);audio.play().then(()=>musicButton.textContent='Pausar música ♫').catch(()=>musicButton.textContent='Tocar música ♫');}});
-musicButton.addEventListener('dblclick',()=>{if(audio.paused)audio.play();else audio.pause();musicButton.textContent=audio.paused?'Tocar música ♫':'Pausar música ♫';});
-audio.addEventListener('click',()=>{});
+function photo(input,id){if(input.files[0])document.getElementById(id).src=URL.createObjectURL(input.files[0])}
+function playMusic(input){if(input.files[0]){let a=document.getElementById('audio');a.src=URL.createObjectURL(input.files[0]);a.play()}}
+const c=document.getElementById('stars'),x=c.getContext('2d');let s=[];
+function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;s=Array.from({length:180},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.3,a:Math.random()}))}
+function draw(){x.clearRect(0,0,c.width,c.height);for(let p of s){p.a+=(Math.random()-.5)*.08;p.a=Math.max(.15,Math.min(1,p.a));x.fillStyle='rgba(255,245,255,'+p.a+')';x.beginPath();x.arc(p.x,p.y,p.r*devicePixelRatio,0,7);x.fill()}requestAnimationFrame(draw)}
+onresize=resize;resize();draw();
 </script>
 </body>
-</html>
+                                                     </html>
