@@ -2,65 +2,120 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PARA TI🤍</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>PARA TI 🤍</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#03030d;color:white;font-family:Georgia,serif;overflow:hidden}
-#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1}
-body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gradient(ellipse at 50% 55%,#39215e 0%,transparent 38%),radial-gradient(ellipse at 80% 20%,#142b58 0%,transparent 35%);animation:nebula 12s infinite alternate}
-@keyframes nebula{to{transform:translate(3%,-2%) scale(1.1)}}
-header{position:absolute;top:22px;width:100%;text-align:center;padding:0 14px}
-small{letter-spacing:4px;color:#d8c7ff;font:10px Arial}
-h1{font-weight:normal;font-size:clamp(28px,7vw,42px);margin:10px 0;text-shadow:0 0 15px #b68bff,0 0 30px #ef8aff}
-.subtitle{font-size:12px;color:#eee0ff}
-.galaxy{position:absolute;left:50%;top:53%;width:min(100vw,500px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:repeating-conic-gradient(from 0deg,transparent 0deg 8deg,#c5a5ff35 9deg 10deg,transparent 12deg 18deg),radial-gradient(circle,#fff 0%,#dfc1ff 2%,#9c7cff8c 5%,#6b48b54d 15%,transparent 60%);mask-image:radial-gradient(ellipse,transparent 0%,black 15%,black 35%,transparent 70%);animation:spin 30s linear infinite;filter:drop-shadow(0 0 18px #a879ff)}
-@keyframes spin{to{rotate:360deg}}
-.galaxy:after{content:"";position:absolute;left:0;right:0;top:49%;height:2px;background:linear-gradient(90deg,transparent,#fff, #d6b4ff,transparent);box-shadow:0 0 24px 8px #b48bff55}
-.heart{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-size:clamp(90px,25vw,140px);color:#ffc9ff;text-shadow:0 0 8px white,0 0 25px #ff6cf5,0 0 55px #ac6dff;animation:pulse 2.5s infinite;z-index:2}
-@keyframes pulse{50%{transform:translate(-50%,-55%) scale(1.08)}}
-.photo{position:absolute;width:65px;height:85px;padding:4px;background:linear-gradient(135deg,#fff,#d2aaff,#ffb5ed);box-shadow:0 0 15px #c58aff;animation:float 5s infinite ease-in-out;cursor:pointer}
-.photo img{width:100%;height:100%;object-fit:cover;background:#33234b}
-.p1{top:38%;left:10%;transform:rotate(-10deg)}.p2{top:38%;right:10%;transform:rotate(10deg)}.p3{top:62%;left:17%;transform:rotate(8deg)}.p4{top:62%;right:17%;transform:rotate(-8deg)}
-@keyframes float{50%{margin-top:-12px}}
-.bottom{position:absolute;bottom:20px;width:100%;text-align:center;padding:0 18px}
-.bottom p{font-size:14px;line-height:1.6;text-shadow:0 0 12px #b88aff}
-button{border:1px solid #d9baff80;color:white;background:#160f2cdd;border-radius:30px;padding:10px 13px;margin:3px;font-size:11px}
-#letter{position:fixed;inset:0;background:#03030df0;display:none;place-items:center;padding:22px;z-index:5}
-.card{max-width:400px;text-align:center;padding:25px;border:1px solid #d6b5ff80;border-radius:18px;background:#17102a;line-height:1.8;box-shadow:0 0 35px #a66bff55}
-input{display:none}
-@media(max-height:650px){header{top:8px}.galaxy{width:85vw}.bottom{bottom:5px}.heart{top:40%}.p3,.p4{top:59%}}
+body{margin:0;background:#f7198c;color:white;font-family:Georgia,serif;overflow:hidden}
+header{text-align:center;padding:14px;font:bold 17px Arial;letter-spacing:2px}
+#universe{display:block;width:94%;height:68vh;margin:auto;background:radial-gradient(ellipse,#282039,#080711 65%,#020208);border:2px solid #ffb5e8;border-radius:28px;box-shadow:0 0 30px #ff8bd8}
+.controls{text-align:center;padding:12px}
+button{background:#570b40;color:white;border:1px solid #ffc9ed;border-radius:25px;padding:11px;margin:4px}
+p{text-align:center;font-size:13px;padding:0 10px}
 </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
-<header>
-<small>UM PEDACINHO DO MEU UNIVERSO</small>
-<h1>PARA TI 🤍</h1>
-<div class="subtitle">Se eu pudesse te dar o universo, ainda seria pouco perto do que tu significas.</div>
-</header>
-<div class="galaxy"></div>
-<div class="heart">♡</div>
-<label class="photo p1"><img id="im1" alt="Foto 1"><input type="file" accept="image/*" onchange="photo(this,'im1')"></label>
-<label class="photo p2"><img id="im2" alt="Foto 2"><input type="file" accept="image/*" onchange="photo(this,'im2')"></label>
-<label class="photo p3"><img id="im3" alt="Foto 3"><input type="file" accept="image/*" onchange="photo(this,'im3')"></label>
-<label class="photo p4"><img id="im4" alt="Foto 4"><input type="file" accept="image/*" onchange="photo(this,'im4')"></label>
-<div class="bottom">
-<p>No meio de tantas estrelas, meu lugar favorito ainda é onde existe um pedacinho de ti. 🤍</p>
-<button onclick="document.getElementById('letter').style.display='grid'">Ler uma cartinha ✨</button>
-<button onclick="document.getElementById('music').click()">Escolher música ♫</button>
-<button onclick="document.querySelector('.p1 input').click()">Adicionar fotos ♡</button>
-<input id="music" type="file" accept="audio/*" onchange="playMusic(this)">
-<audio id="audio" loop></audio>
+<header>PARA TI 🤍</header>
+<canvas id="universe"></canvas>
+<p>Arraste as frases e o coração com o dedo ✨</p>
+<div class="controls">
+<button onclick="addText()">Adicionar frase ✨</button>
+<button onclick="changeHeart()">Mudar coração 🤍</button>
+<button onclick="document.getElementById('photos').click()">Adicionar fotos 📸</button>
+<input id="photos" type="file" accept="image/*" multiple hidden>
 </div>
-<div id="letter"><div class="card"><h2>Pra ti, meu universo 🤍</h2><p>Se eu pudesse guardar uma coisa bonita pra sempre, guardaria a sensação boa que é ter você na minha vida. Que cada estrelinha aqui te lembre que, mesmo quando a distância parece grande, existe carinho pensando em ti. Tu és um pedacinho de paz no meu mundo — e eu escolheria te encontrar de novo, em qualquer universo. ✨</p><button onclick="document.getElementById('letter').style.display='none'">Voltar ao universo</button></div></div>
 <script>
-function photo(input,id){if(input.files[0])document.getElementById(id).src=URL.createObjectURL(input.files[0])}
-function playMusic(input){if(input.files[0]){let a=document.getElementById('audio');a.src=URL.createObjectURL(input.files[0]);a.play()}}
-const c=document.getElementById('stars'),x=c.getContext('2d');let s=[];
-function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;s=Array.from({length:180},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.3,a:Math.random()}))}
-function draw(){x.clearRect(0,0,c.width,c.height);for(let p of s){p.a+=(Math.random()-.5)*.08;p.a=Math.max(.15,Math.min(1,p.a));x.fillStyle='rgba(255,245,255,'+p.a+')';x.beginPath();x.arc(p.x,p.y,p.r*devicePixelRatio,0,7);x.fill()}requestAnimationFrame(draw)}
-onresize=resize;resize();draw();
+const c=document.getElementById('universe');
+const x=c.getContext('2d');
+let W,H,stars=[],items=[],drag=null;
+let heart='♡';
+function resize(){
+ W=c.width=c.clientWidth;
+ H=c.height=c.clientHeight;
+ stars=Array.from({length:250},()=>({
+ x:Math.random()*W,y:Math.random()*H,
+ r:Math.random()*1.5+.3,a:Math.random()
+ }));
+ if(!items.length){
+ items=[
+ {type:'text',text:'Te amo 🤍',x:W/2,y:H*.28,size:25},
+ {type:'text',text:'Minha paz ✨',x:W*.23,y:H*.56,size:13},
+ {type:'text',text:'Meu universo',x:W*.76,y:H*.57,size:13},
+ {type:'text',text:'Tu és especial ♡',x:W/2,y:H*.82,size:15},
+ {type:'heart',x:W/2,y:H*.49,size:55}
+ ];
+ }
+}
+function draw(){
+ x.clearRect(0,0,W,H);
+ let g=x.createRadialGradient(W/2,H/2,1,W/2,H/2,W*.8);
+ g.addColorStop(0,'#32214c');g.addColorStop(1,'#020208');
+ x.fillStyle=g;x.fillRect(0,0,W,H);
+ stars.forEach(s=>{
+ s.a+=(Math.random()-.5)*.08;
+ s.a=Math.max(.15,Math.min(1,s.a));
+ x.fillStyle=`rgba(255,255,255,${s.a})`;
+ x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill();
+ });
+ // Galáxia espiral
+ x.save();x.translate(W/2,H*.55);
+ for(let i=0;i<1000;i++){
+ let a=i*.13+Date.now()*.00015;
+ let r=i/1000*Math.min(W,H)*.48;
+ let px=Math.cos(a)*r,py=Math.sin(a)*r*.48;
+ x.fillStyle=`rgba(210,185,255,${1-i/1200})`;
+ x.beginPath();x.arc(px,py,Math.random()*1.2+.3,0,7);x.fill();
+ }
+ x.restore();
+ // Elementos arrastáveis
+ items.forEach(o=>{
+ x.save();x.textAlign='center';x.textBaseline='middle';
+ x.shadowBlur=15;x.shadowColor='#ff8be8';
+ if(o.type==='heart'){
+ x.font=`${o.size}px Arial`;x.fillStyle='#ffb8ed';
+ x.fillText(heart,o.x,o.y);
+ }else if(o.type==='text'){
+ x.font=`${o.size}px Georgia`;x.fillStyle='white';
+ x.fillText(o.text,o.x,o.y);
+ }else if(o.type==='image'){
+ x.drawImage(o.img,o.x-25,o.y-32,50,64);
+ }
+ x.restore();
+ });
+ requestAnimationFrame(draw);
+}
+function addText(){
+ let t=prompt('Escreva uma frase:');
+ if(t)items.push({type:'text',text:t,x:W/2,y:H/2,size:16});
+}
+function changeHeart(){
+ heart=heart==='♡'?'♥':heart==='♥'?'🤍':'♡';
+}
+c.addEventListener('pointerdown',e=>{
+ let r=c.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;
+ drag=[...items].reverse().find(o=>Math.hypot(o.x-px,o.y-py)<65);
+ if(drag){c.setPointerCapture(e.pointerId)}
+});
+c.addEventListener('pointermove',e=>{
+ if(!drag)return;
+ let r=c.getBoundingClientRect();
+ drag.x=e.clientX-r.left;drag.y=e.clientY-r.top;
+});
+c.addEventListener('pointerup',()=>drag=null);
+c.addEventListener('pointercancel',()=>drag=null);
+document.getElementById('photos').addEventListener('change',e=>{
+ [...e.target.files].slice(0,8).forEach(f=>{
+ let im=new Image();
+ im.onload=()=>items.push({
+ type:'image',img:im,
+ x:Math.random()*W*.7+W*.15,
+ y:Math.random()*H*.6+H*.2
+ });
+ im.src=URL.createObjectURL(f);
+ });
+});
+addEventListener('resize',resize);
+resize();draw();
 </script>
 </body>
-                                                     </html>
+</html>
